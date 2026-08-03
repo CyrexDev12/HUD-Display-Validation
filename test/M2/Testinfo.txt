@@ -1,0 +1,56 @@
+T1 - Video Properties 
+
+Status: Passed 
+
+Output: 
+
+Resolution : 1212x766
+FPS        : 30.00
+Frames     : 569
+Duration   : 18.97 seconds
+
+
+T2 - Video Frame by Frame 
+
+Status: Passed 
+
+Output: N/A 
+
+T3 - printFrameNumbers 
+
+Status: Passed 
+
+Output: 
+
+(Video is 30 FPs and is around 19-20 seconds so around 600ish frames expected)
+
+Processing frame 565
+Processing frame 566
+Processing frame 567
+Processing frame 568
+
+
+T4 - Save Specific Frames 
+
+Status: Passed 
+
+Output: (Outputs as a png to that specific frame in which is set)
+
+
+T5 - Anaylze Every n frames 
+
+Status: Passed 
+
+Output: 
+
+(Analyzes every 30 frames per 30 fps)
+
+Analyzing frame 300
+Analyzing frame 330
+Analyzing frame 360
+Analyzing frame 390
+Analyzing frame 420
+Analyzing frame 450
+Analyzing frame 480
+Analyzing frame 510
+Analyzing frame 540
