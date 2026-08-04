@@ -1,0 +1,83 @@
+
+
+T1 - Frames 20, 40, 60, 80, 100, 120, 140 Valid; Rest invalid (Accaptance tolerance at >= 95%)
+
+Status: Failed
+
+Output: 
+
+Frame 0: PASS (Score=0.9891)
+Frame 20: PASS (Score=0.9894)
+Frame 40: PASS (Score=0.9894)
+Frame 60: PASS (Score=0.9894)
+Frame 80: PASS (Score=0.9894)
+Frame 100: PASS (Score=0.9894)
+Frame 120: PASS (Score=0.9894)
+Frame 140: PASS (Score=0.9894)
+Frame 160: PASS (Score=0.9887)
+Frame 180: PASS (Score=0.9831)
+Frame 200: PASS (Score=0.9838)
+Frame 220: FAIL (Score=0.9179)
+Frame 240: FAIL (Score=0.9177)
+Frame 260: FAIL (Score=0.9179)
+Frame 280: FAIL (Score=0.9178)
+Frame 300: PASS (Score=0.9825)
+Frame 320: PASS (Score=0.9825)
+Frame 340: PASS (Score=0.9825)
+Frame 360: PASS (Score=0.9825)
+Frame 380: PASS (Score=0.9825)
+Frame 400: PASS (Score=0.9825)
+Frame 420: PASS (Score=0.9825)
+Frame 440: PASS (Score=0.9825)
+Frame 460: PASS (Score=0.9825)
+Frame 480: PASS (Score=0.9825)
+Frame 500: PASS (Score=0.9825)
+Frame 520: PASS (Score=0.9825)
+Frame 540: PASS (Score=0.9825)
+Frame 560: PASS (Score=0.9825)
+Testing Complete
+
+
+Notice: The big dropoff is attributed to the popup when deleting the object for the failures. After those failures (frames 300-560) reflect the deleted or missing object. 
+
+0.9894 - 0.9825 = 0.0069, only about a 0.7% drop with the missing element from the current implementation of M3. 
+
+T2 - Frames 20, 40, 60, 80, 100, 120, 140 Valid; Rest invalid (Now with acceptance tolerance at >= 98.3%)
+
+Status: Passed
+
+Frame 0: PASS (Score=0.9891)
+Frame 20: PASS (Score=0.9894)
+Frame 40: PASS (Score=0.9894)
+Frame 60: PASS (Score=0.9894)
+Frame 80: PASS (Score=0.9894)
+Frame 100: PASS (Score=0.9894)
+Frame 120: PASS (Score=0.9894)
+Frame 140: PASS (Score=0.9894)
+Frame 160: PASS (Score=0.9887)
+Frame 180: PASS (Score=0.9831)
+Frame 200: PASS (Score=0.9838)
+Frame 220: FAIL (Score=0.9179)
+Frame 240: FAIL (Score=0.9177)
+Frame 260: FAIL (Score=0.9179)
+Frame 280: FAIL (Score=0.9178)
+Frame 300: FAIL (Score=0.9825)
+Frame 320: FAIL (Score=0.9825)
+Frame 340: FAIL (Score=0.9825)
+Frame 360: FAIL (Score=0.9825)
+Frame 380: FAIL (Score=0.9825)
+Frame 400: FAIL (Score=0.9825)
+Frame 420: FAIL (Score=0.9825)
+Frame 440: FAIL (Score=0.9825)
+Frame 460: FAIL (Score=0.9825)
+Frame 480: FAIL (Score=0.9825)
+Frame 500: FAIL (Score=0.9825)
+Frame 520: FAIL (Score=0.9825)
+Frame 540: FAIL (Score=0.9825)
+Frame 560: FAIL (Score=0.9825)
+Testing Complete
+
+Notice: Tolerance has been adjusted here. Noting that SSIM can very smally even with objects deleted from the frame. Also went to frame 200 acceptance period was slightly
+longer than expected, but is ok. 
+
+

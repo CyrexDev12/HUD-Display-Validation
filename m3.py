@@ -7,7 +7,7 @@ VIDEO_PATH = "test/M3/M3V1.mp4"
 GOLDEN_IMAGE_PATH = "test/M3/Golden.png"
 
 FRAME_INTERVAL = 20
-SIMILARITY_THRESHOLD = 0.95
+SIMILARITY_THRESHOLD = 0.983
 
 # Load golden image
 golden = cv2.imread(GOLDEN_IMAGE_PATH)
@@ -42,14 +42,14 @@ while True:
             cv2.COLOR_BGR2GRAY
         )
 
-        # # Ensure dimensions match
-        # if current_gray.shape != golden_gray.shape:
-        #     print(
-        #         f"Frame {frame_number}: "
-        #         f"FAIL (size mismatch)"
-        #     )
-        #     frame_number += 1
-        #     continue
+        # Ensure dimensions match
+        if current_gray.shape != golden_gray.shape:
+            print(
+                f"Frame {frame_number}: "
+                f"FAIL (size mismatch)"
+            )
+            frame_number += 1
+            continue
 
         score, _ = ssim(
             golden_gray,

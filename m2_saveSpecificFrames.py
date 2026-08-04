@@ -1,8 +1,8 @@
 import cv2
 
-cap = cv2.VideoCapture("test/M2/M2Test.mp4")
+cap = cv2.VideoCapture("test/M4/ccwVideo.mp4")
 
-frame_num = 500
+frame_num = 0
 
 ## Set it to that specific frame before reading 
 cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)

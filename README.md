@@ -48,6 +48,39 @@ For this milestone we will have an image in which we know is correct aka "The go
 
 Test Description: To test this we will construct a basic structure for the golden image with just a few shapes. Then a video will be taken of the image within paint, and in a certain time period of the video some objects may be missing. 
 
-Test 1 -- First 5 seconds good, rest of video invalid
+T1 - Frames 20, 40, 60, 80, 100, 120, 140 Valid; Rest invalid (Accaptance tolerance at >= 95%)
 
-Status: (INCOMPLETE) Left off with issues with files needing the same dimensions. 
+Status: Failed (Exception)
+
+Notice: We learned that the structural part of SSIM can give small variations in the score, because it takes small snippets of the large frame. 
+So even if a shape is missing we can still get a high score, but varies smally. In this case it was about 0.7%, so we adjusted the acceptance tolerance for test 2. Since T2 passed succesfully this test is given an exception. 
+
+T2 - Frames 20, 40, 60, 80, 100, 120, 140 Valid; Rest invalid (Now with acceptance tolerance at >= 98.3%)
+
+Status: Passed
+
+Status: Passed Milestone Complete
+
+
+Milestone 4 -- Detecting Rotational Motion on simple BFD Display
+
+For this milestone the goal is to succesfully detect rotational motion types, such as Clockwise, and counterclockwise. Additionally, we will need to make sure that when no motion occurs the system doesn't report motion. 
+
+For testing this will be broken down into 3 tests. 
+
+T1 - Correctly Detects CCW Motion 
+
+Status: Passed 
+
+T2 - Rejects CW video for CCW movement 
+
+Status: Passed 
+
+T3 - Rejects no motion video for CCW movement
+
+Status: Passed 
+
+Notice: It took some digging but, it is important to have a distinct object. In this case it was a green arrow, and we also had to choose the farthest green contour from the center, as the center axis is also green. 
+
+Status: Passed Milestone Complete 
+

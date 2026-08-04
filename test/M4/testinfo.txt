@@ -1,0 +1,42 @@
+T1 - Correctly Detects CCW Motion 
+
+Status: Passed 
+
+Output: 
+
+Summary
+Total Samples: 59
+Total Moves: 58
+CCW Moves: 58
+CCW Ratio: 100.00%
+PASS - Counter Clockwise Rotation Detected
+
+Note: Had to mess with it for a bit, but with the BFD displays I figured out that we need to find a distinct object/element to track. 
+In this case we chose the green arrow (Which is the furthest green contour). 
+
+T2 - Rejects CW video for CCW movement 
+
+Status: Passed
+
+Output: 
+
+Summary
+Total Samples: 57
+Total Moves: 56
+CCW Moves: 0
+CCW Ratio: 0.00%
+FAIL - Counter Clockwise Rotation Not Detected
+
+T3 - Rejects no motion video for CCW movement
+
+Status: Passed
+
+Output: 
+
+Summary
+Total Samples: 63
+Total Moves: 62
+CCW Moves: 8
+CCW Ratio: 12.90%
+FAIL - Counter Clockwise Rotation Not Detected
+
