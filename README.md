@@ -84,3 +84,7 @@ Notice: It took some digging but, it is important to have a distinct object. In 
 
 Status: Passed Milestone Complete 
 
+
+Milestone 5 - BFD Detecting Rotational motion an video frame comparison (Dynamic and static validation all in one)
+
+For this milestone we are wanting to bring milestone 4, and 3 all in one. So that we can validate movement on the displayed image, and we can also ensure the image matches as intended. 
