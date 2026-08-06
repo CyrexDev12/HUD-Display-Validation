@@ -88,3 +88,15 @@ Status: Passed Milestone Complete
 Milestone 5 - BFD Detecting Rotational motion an video frame comparison (Dynamic and static validation all in one)
 
 For this milestone we are wanting to bring milestone 4, and 3 all in one. So that we can validate movement on the displayed image, and we can also ensure the image matches as intended. 
+
+T1 - Accepts; Proper figure, and rotational CCW movement 
+
+Status: Passed
+
+T2 - Rejects; No rotational motion moving CCW 
+
+Status: Passed
+
+T3 - Rejects; Image has some missing elements 
+
+Status: Passed

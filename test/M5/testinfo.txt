@@ -1,0 +1,96 @@
+T1 - Accepts Correct Image/Video
+
+Status: Pass
+
+Iterations: 
+
+1. 
+
+========== SUMMARY ==========
+Static Passes: 1
+Static Fails: 14
+Static Pass Ratio: 6.67%
+CCW Ratio: 100.00%
+Dynamic Result: PASS
+Static Result: FAIL
+
+OVERALL RESULT: FAIL
+
+Note: May need to lower the acceptance. Seems to go as low as 90%. Next iteration we will use 90% instead. 
+
+2. 
+
+========== SUMMARY ==========
+Static Passes: 15
+Static Fails: 0
+Static Pass Ratio: 100.00%
+CCW Ratio: 100.00%
+Dynamic Result: PASS
+Static Result: PASS
+
+OVERALL RESULT: PASS
+
+Note: 90% gives us a pass. 90% should be a good enough threshold. 
+
+
+
+T2 - Rejects; No rotational motion moving CCW, but figure is correct
+
+Status: Pass
+
+T3 - Rejects; Image has some missing elements, but CCW rotation properly occurs 
+
+Note: This test will have a series of 3 videos, where the elements chosen are randomly chosen to simulate a more realistic environement. 
+
+Video 1: 
+
+Status: Passed 
+
+Output: 
+
+========== SUMMARY ==========
+Static Passes: 0
+Static Fails: 14
+Static Pass Ratio: 0.00%
+CCW Ratio: 69.23%
+Dynamic Result: FAIL
+Static Result: FAIL
+
+OVERALL RESULT: FAIL
+
+
+Video 2: 
+
+Status: Passed 
+
+Output: 
+
+========== SUMMARY ==========
+Static Passes: 0
+Static Fails: 15
+Static Pass Ratio: 0.00%
+CCW Ratio: 100.00%
+Dynamic Result: PASS
+Static Result: FAIL
+
+OVERALL RESULT: FAIL
+
+
+Video 3: 
+
+Status: Passed 
+
+Output: 
+
+========== SUMMARY ==========
+Static Passes: 0
+Static Fails: 14
+Static Pass Ratio: 0.00%
+CCW Ratio: 100.00%
+Dynamic Result: PASS
+Static Result: FAIL
+
+OVERALL RESULT: FAIL
+
+
+Status: Passed 

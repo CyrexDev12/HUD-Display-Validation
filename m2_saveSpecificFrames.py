@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture("test/M4/ccwVideo.mp4")
+cap = cv2.VideoCapture("test/M5/T1_Video.mp4")
 
 frame_num = 0
 
