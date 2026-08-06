@@ -75,3 +75,10 @@ SSIM = Luminance * Contrast * Structure (No given weights)
 
 Notice: SSIM may give small differences in score even if a shape is missing, because it may effect only a small part of the frame when you are dealing with 
 large windows. 
+
+
+SSIM Data analysis 
+
+After SSIM is collected for each sampled n frame. We will then take the average, min, and max of the data. 
+
+For the figure being analyzed an accetpable threshold must be made. This threshold will will represent the minimum acceptable average SSIM percentage over all of the n samples frames. An important note, is that each figure may be different, and there cannot be one standardized acceptable value. 

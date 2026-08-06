@@ -1,0 +1,10 @@
+
+T1 - Flickering elements causes rejection
+
+Status: 
+
+T2 - Flickering elements with rotation of figure causes rejection 
+
+T3 - Non-flickering figure accepted w/o roation 
+
+T4 - Non-flickering figure accepted w/ rotation

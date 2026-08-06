@@ -6,8 +6,8 @@ import math
 # Display Settings
 # -------------------
 
-WIDTH = 900
-HEIGHT = 900
+WIDTH = 700
+HEIGHT = 700
 
 CENTER_X = WIDTH // 2
 CENTER_Y = HEIGHT // 2

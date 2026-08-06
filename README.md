@@ -109,6 +109,7 @@ Milestone 6 - Flickering Elements SSIM reject
 
 For this milestone an important requirment is that sometimes in BFD displays there may be flickering elements. We need to detect those, and give a proper output. 
 
+Note: For this part, this is where we will have to strengthen our SSIM. We will collect every n frames, and then we will save all of our data from n frames, take the average SSIM from each of those frames. 
 
 T1 - Flickering elements causes rejection
 
@@ -116,7 +117,22 @@ Status:
 
 Status: 
 
+T2 - Flickering elements with rotation of figure causes rejection 
+
+T3 - Non-flickering figure accepted w/o roation 
+
+T4 - Non-flickering figure accepted w/ rotation
+
 
 Milestone 7 - SSIM missing elements and flickering elements
 
 For this milestone we will want to make sure that we can properly distinguish between flickering and/or missing elements. 
+
+Status: 
+
+
+Milestone 8 - SSIM Missing Elements, Flickering Elements, and rotation 
+
+For this milestone we will add all the needed requirements all together to make sure everything can be properly checked in parallel with each other. 
+
+Status: 

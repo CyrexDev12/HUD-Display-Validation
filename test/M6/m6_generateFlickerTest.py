@@ -1,4 +1,5 @@
-# Milestone 4 - Realistic BFD Rendering Fault Test
+# Milestone 6 - Generate Test Video for BFD Display
+# Random Element Flicker Test
 
 import tkinter as tk
 import math
@@ -8,8 +9,8 @@ import random
 # Display Settings
 # -------------------
 
-WIDTH = 900
-HEIGHT = 900
+WIDTH =700
+HEIGHT = 700
 
 CENTER_X = WIDTH // 2
 CENTER_Y = HEIGHT // 2
@@ -21,32 +22,11 @@ ROTATION_SPEED = 1.0
 angle = 0
 
 # -------------------
-# Fault Injection
-# -------------------
-
-FAULT_TYPES = [
-    "bearing1_arrow",
-    "bearing2_arrow",
-    "bearing1_half",
-    "bearing2_half",
-    "cardinal",
-    "degree_label",
-    "green_nav",
-    "cyan_nav"
-]
-
-current_fault = None
-fault_parameter = None
-fault_frames_remaining = 0
-
-frames_until_next_fault = random.randint(180, 480)
-
-# -------------------
 # Window Setup
 # -------------------
 
 root = tk.Tk()
-root.title("BFD Realistic Flicker Test")
+root.title("BFD Flicker Test")
 
 canvas = tk.Canvas(
     root,
@@ -96,74 +76,32 @@ def draw_arrow(x, y, angle_deg, color):
     )
 
 
-def update_fault_injection():
-
-    global current_fault
-    global fault_parameter
-    global fault_frames_remaining
-    global frames_until_next_fault
-
-    if current_fault is not None:
-
-        fault_frames_remaining -= 1
-
-        if fault_frames_remaining <= 0:
-
-            current_fault = None
-            fault_parameter = None
-            frames_until_next_fault = random.randint(180, 480)
-
-        return
-
-    frames_until_next_fault -= 1
-
-    if frames_until_next_fault <= 0:
-
-        current_fault = random.choice(FAULT_TYPES)
-
-        if current_fault == "cardinal":
-
-            fault_parameter = random.choice(
-                ["N", "E", "S", "W"]
-            )
-
-        elif current_fault == "degree_label":
-
-            fault_parameter = random.choice(
-                list(range(0, 360, 30))
-            )
-
-        elif current_fault in (
-            "bearing1_arrow",
-            "bearing2_arrow"
-        ):
-
-            fault_parameter = random.choice(
-                ["head1", "head2"]
-            )
-
-        elif current_fault in (
-            "bearing1_half",
-            "bearing2_half"
-        ):
-
-            fault_parameter = random.choice(
-                ["first", "second"]
-            )
-
-        fault_frames_remaining = random.randint(1, 5)
-
-
 def draw():
 
     global angle
 
-    update_fault_injection()
-
     canvas.delete("all")
 
     # -------------------
-    # Compass Ring
+    # Random Flicker State
+    # -------------------
+
+    show_bearing1 = random.random() > 0.10
+    show_bearing2 = random.random() > 0.10
+
+    show_green_nav = random.random() > 0.10
+    show_cyan_nav = random.random() > 0.10
+
+    flicker_cardinal = random.choice(
+        [None, "N", "E", "S", "W"]
+    )
+
+    flicker_degree = random.choice(
+        [None] + list(range(0, 360, 30))
+    )
+
+    # -------------------
+    # Rotating Compass Ring
     # -------------------
 
     canvas.create_oval(
@@ -217,10 +155,7 @@ def draw():
 
     for text, base_angle in labels:
 
-        if (
-            current_fault == "cardinal"
-            and text == fault_parameter
-        ):
+        if flicker_cardinal == text:
             continue
 
         x, y = polar_to_xy(
@@ -242,10 +177,7 @@ def draw():
 
     for deg in range(0, 360, 30):
 
-        if (
-            current_fault == "degree_label"
-            and deg == fault_parameter
-        ):
+        if deg == flicker_degree:
             continue
 
         x, y = polar_to_xy(
@@ -262,50 +194,22 @@ def draw():
         )
 
     # -------------------
-    # Bearing Line 1
+    # Rotating Bearing Line 1
     # -------------------
 
-    bearing1 = angle + 20
+    if show_bearing1:
 
-    x1, y1 = polar_to_xy(
-        280,
-        bearing1
-    )
+        bearing1 = angle + 20
 
-    x2, y2 = polar_to_xy(
-        280,
-        bearing1 + 180
-    )
-
-    if (
-        current_fault == "bearing1_half"
-        and fault_parameter == "first"
-    ):
-
-        canvas.create_line(
-            CENTER_X,
-            CENTER_Y,
-            x2,
-            y2,
-            fill="white",
-            width=4
+        x1, y1 = polar_to_xy(
+            280,
+            bearing1
         )
 
-    elif (
-        current_fault == "bearing1_half"
-        and fault_parameter == "second"
-    ):
-
-        canvas.create_line(
-            CENTER_X,
-            CENTER_Y,
-            x1,
-            y1,
-            fill="white",
-            width=4
+        x2, y2 = polar_to_xy(
+            280,
+            bearing1 + 180
         )
-
-    else:
 
         canvas.create_line(
             x1,
@@ -316,10 +220,6 @@ def draw():
             width=4
         )
 
-    if not (
-        current_fault == "bearing1_arrow"
-        and fault_parameter == "head1"
-    ):
         draw_arrow(
             x1,
             y1,
@@ -327,10 +227,6 @@ def draw():
             "white"
         )
 
-    if not (
-        current_fault == "bearing1_arrow"
-        and fault_parameter == "head2"
-    ):
         draw_arrow(
             x2,
             y2,
@@ -339,78 +235,42 @@ def draw():
         )
 
     # -------------------
-    # Bearing Line 2
+    # Rotating Bearing Line 2
     # -------------------
 
-    bearing2 = angle + 110
+    if show_bearing2:
 
-    x1b, y1b = polar_to_xy(
-        240,
-        bearing2
-    )
+        bearing2 = angle + 110
 
-    x2b, y2b = polar_to_xy(
-        240,
-        bearing2 + 180
-    )
+        x1, y1 = polar_to_xy(
+            240,
+            bearing2
+        )
 
-    if (
-        current_fault == "bearing2_half"
-        and fault_parameter == "first"
-    ):
+        x2, y2 = polar_to_xy(
+            240,
+            bearing2 + 180
+        )
 
         canvas.create_line(
-            CENTER_X,
-            CENTER_Y,
-            x2b,
-            y2b,
+            x1,
+            y1,
+            x2,
+            y2,
             fill="white",
             width=3
         )
 
-    elif (
-        current_fault == "bearing2_half"
-        and fault_parameter == "second"
-    ):
-
-        canvas.create_line(
-            CENTER_X,
-            CENTER_Y,
-            x1b,
-            y1b,
-            fill="white",
-            width=3
-        )
-
-    else:
-
-        canvas.create_line(
-            x1b,
-            y1b,
-            x2b,
-            y2b,
-            fill="white",
-            width=3
-        )
-
-    if not (
-        current_fault == "bearing2_arrow"
-        and fault_parameter == "head1"
-    ):
         draw_arrow(
-            x1b,
-            y1b,
+            x1,
+            y1,
             bearing2,
             "white"
         )
 
-    if not (
-        current_fault == "bearing2_arrow"
-        and fault_parameter == "head2"
-    ):
         draw_arrow(
-            x2b,
-            y2b,
+            x2,
+            y2,
             bearing2 + 180,
             "white"
         )
@@ -419,7 +279,7 @@ def draw():
     # Green Nav Symbol
     # -------------------
 
-    if current_fault != "green_nav":
+    if show_green_nav:
 
         nav_x, nav_y = polar_to_xy(
             RADIUS - 35,
@@ -441,7 +301,7 @@ def draw():
     # Cyan Nav Symbol
     # -------------------
 
-    if current_fault != "cyan_nav":
+    if show_cyan_nav:
 
         nav_x, nav_y = polar_to_xy(
             RADIUS - 25,
@@ -482,10 +342,13 @@ def draw():
     canvas.create_polygon(
         CENTER_X,
         CENTER_Y - 55,
+
         CENTER_X - 10,
         CENTER_Y - 35,
+
         CENTER_X + 10,
         CENTER_Y - 35,
+
         outline="lime",
         fill=""
     )
@@ -503,8 +366,8 @@ def draw():
     # Rotation Mode
     # -------------------
 
-    # angle += ROTATION_SPEED   # CCW
-    # angle -= ROTATION_SPEED   # CW
+    # angle -= ROTATION_SPEED   # CCW
+    # angle += ROTATION_SPEED   # CW
 
     root.after(16, draw)
 
