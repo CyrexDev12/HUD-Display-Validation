@@ -100,3 +100,23 @@ Status: Passed
 T3 - Rejects; Image has some missing elements 
 
 Status: Passed
+
+
+Status: Milestone Completed
+
+
+Milestone 6 - Flickering Elements SSIM reject
+
+For this milestone an important requirment is that sometimes in BFD displays there may be flickering elements. We need to detect those, and give a proper output. 
+
+
+T1 - Flickering elements causes rejection
+
+Status: 
+
+Status: 
+
+
+Milestone 7 - SSIM missing elements and flickering elements
+
+For this milestone we will want to make sure that we can properly distinguish between flickering and/or missing elements. 
