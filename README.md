@@ -136,3 +136,8 @@ Milestone 8 - SSIM Missing Elements, Flickering Elements, and rotation
 For this milestone we will add all the needed requirements all together to make sure everything can be properly checked in parallel with each other. 
 
 Status: 
+
+
+Milestone 9 - 32 Bit 
+
+For this milestone, because TestStand 32 Bit is being used, we need to ensure that 32 bit Python can properly work. 
